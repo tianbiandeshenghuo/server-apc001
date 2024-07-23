@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>洛谷比赛报名人数进度条</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div style="width: 50%; margin: 20px auto;">
+    <canvas id="enrollmentChart"></canvas>
+  </div>
+
+  <script>
+    fetch('https://www.luogu.com.cn/contest/169817?_contentOnly=1')
+      .then(response => response.json())
+      .then(data => {
+        const enrollmentCount = data.currentData.contest.totalParticipants; // 假设从API获取的报名人数
+
+        // 创建进度条数据
+        const progressData = {
+          labels: ['报名人数'],
+          datasets: [{
+            label: '报名人数',
+            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1,
+            data: [enrollmentCount],
+          }]
+        };
+
+        // 设置进度条配置
+        const progressOptions = {
+          scales: {
+            x: {
+              grid: {
+                display: false
+              }
+            },
+            y: {
+              min: 0,
+              max: 1500, // 设置进度条的最大值
+              ticks: {
+                stepSize: 500 // 设置步长，可以根据需要调整
+              }
+            }
+          }
+        };
+
+        // 获取Canvas对象并绘制进度条
+        const ctx = document.getElementById('enrollmentChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'bar',
+          data: progressData,
+          options: progressOptions
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  </script>
+</body>
+</html>
