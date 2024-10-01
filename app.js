@@ -8,7 +8,7 @@ const port = 8080;
 app.use(express.static('public'));
 
 app.get('/data', (req, res) => {
-    request('https://www.luogu.com.cn/contest/169817?_contentOnly=1', (error, response, body) => {
+    request('https://www.luogu.com.cn/contest/126344?_contentOnly=1', (error, response, body) => {
         if (!error && response.statusCode == 200) {
             const data = JSON.parse(body);
             const participants = data.currentData.contest.totalParticipants;
