@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ark-Aak/server-lmxoi-round2.git"
+    "url": "git+https://github.com/tianbiandeshenghuo/server-apc001.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Ark-Aak/server-lmxoi-round2/issues"
+    "url": "https://github.com/tianbiandeshenghuo/server-apc001/issues"
   },
-  "homepage": "https://github.com/Ark-Aak/server-lmxoi-round2#readme"
+  "homepage": "https://github.com/tianbiandeshenghuo/server-apc001#readme"
 }
